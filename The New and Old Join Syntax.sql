@@ -21,3 +21,22 @@ FROM
 	departments_dup d 
 WHERE m.dept_no = d.dept_no
 ORDER BY m.dept_no;
+
+# Using WHERE clause:
+SELECT 
+    e.emp_no, e.first_name, e.last_name, dm.dept_no, e.hire_date
+FROM
+    employees e,
+    dept_manager dm
+WHERE
+    e.emp_no = dm.emp_no
+ORDER BY e.emp_no;
+
+# Using New Join Syntax:
+SELECT 
+    e.emp_no, e.first_name, e.last_name, dm.dept_no, e.hire_date
+FROM
+    employees e
+        JOIN
+    dept_manager dm ON e.emp_no = dm.emp_no
+ORDER BY e.emp_no;
